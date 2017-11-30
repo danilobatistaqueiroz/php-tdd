@@ -1,1 +1,1 @@
-export PATH=$PATH;C:/Users/danilo.queiroz/php/apache2x64/bin
+export PATH=$PATH:/c/Users/danilo.queiroz/php/php7x64

@@ -18,19 +18,19 @@ class UserDao {
     }
 	
     public function byId($id) {
-        $sqlString = "SELECT * FROM `tbUsers` WHERE id=" . $id;
-        $result = $this->conn->query($sqlString);
-        return $result->fetch(PDO::FETCH_ASSOC);
+        $statement = $this->conn->prepare("select * from `tbUsers` where id = :id", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $statement->execute(array(':id' => $id));
+        return $statement->fetchAll();
     }
 	
     public function actives() {
-        $sqlString = "SELECT * FROM tbUsers WHERE status=1";
+        $sqlString = "SELECT * FROM `tbUsers` WHERE status=1";
         $result = $this->conn->query($sqlString);
         return $result->fetchAll(\PDO::FETCH_ASSOC);
     }
 	
     public function listAll() {
-        $sqlString = "SELECT * FROM tbUsers";
+        $sqlString = "SELECT * FROM `tbUsers`";
         $result = $this->conn->query($sqlString);
         return $result->fetchAll(\PDO::FETCH_ASSOC);
     }

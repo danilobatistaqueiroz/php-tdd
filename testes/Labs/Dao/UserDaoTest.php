@@ -53,11 +53,11 @@ class UserDaoTest extends TestCase
         // ver se está igual o produto do cenário
         $saved = $userDao->byId($conn->lastInsertId());
 
-		$this->assertEquals($saved["login"], $user->getLogin());
-        $this->assertEquals($saved["name"], $user->getName());
-        $this->assertEquals($saved["email"], $user->getEmail());
-		$this->assertEquals($saved["type"], $user->getType());
-        $this->assertEquals($saved["status"], $user->getStatus());
+		$this->assertEquals($saved[0]["login"], $user->getLogin());
+        $this->assertEquals($saved[0]["name"], $user->getName());
+        $this->assertEquals($saved[0]["email"], $user->getEmail());
+		$this->assertEquals($saved[0]["type"], $user->getType());
+        $this->assertEquals($saved[0]["status"], $user->getStatus());
     }
 	
     /**
@@ -81,8 +81,9 @@ class UserDaoTest extends TestCase
      */
     public function testById() {
         $conn = Mockery::mock('PDO');
-        $conn->shouldReceive('query')->andReturn($conn);
-        $conn->shouldReceive('fetch')->andReturn(array('id' => 1));
+		$conn->shouldReceive('prepare')->andReturn($conn);
+        $conn->shouldReceive('execute')->andReturn($conn);
+        $conn->shouldReceive('fetchAll')->andReturn(array('id' => 1));
         $userDao = new UserDao($conn);
         $this->assertNotNull($userDao->byId(1)); 
     }
