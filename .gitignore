@@ -1,0 +1,5 @@
+vendor
+composer.lock
+setEnv.bat
+start.bat
+git-bash.lnk

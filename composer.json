@@ -1,0 +1,21 @@
+{
+    "name": "tdd-php",
+    "description": "An example of User setup in PHP",
+    "authors": [
+        {
+            "name": "Danilo Batista de Queiroz"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^6.4",
+        "mockery/mockery": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Labs\\": [
+                "src/Labs",
+                "tests/Labs"
+            ]
+        }
+    }
+}

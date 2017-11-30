@@ -1,0 +1,1 @@
+export PATH=$PATH;C:/Users/danilo.queiroz/php/apache2x64/bin
