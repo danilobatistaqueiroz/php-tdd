@@ -15,4 +15,4 @@ run composer:
 
 ### More about TDD
 
-danilobatistaqueiroz/tdd_with_php.md 
+https://gist.github.com/danilobatistaqueiroz/tdd_with_php.md
